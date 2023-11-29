@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+:root {
+    --neutral-ligth-50: #FAFAFA;
+    --neutral-ligth-100:#E4E5F1;
+    --neutral-ligth-200: #D2D3DB;
+    --neutral-ligth-300: #9394A5;
+    --neutral-ligth-400: #484B6A;
+
+    --primary-100: #3A7BFD;
+
+    --gradient: radial-gradient(circle at top left, #57ddff, #c058f3);
+
+    --josefin: 'Josefin Sans', sans-serif;
+}
+
+
+body {
+    font-family: var(--josefin);
+    background-color: var(--neutral-ligth-100);
+    font-size: 20px;
+}
+
+.cabecalho {
+    background-image: url(../images/bg-desktop-light.jpg);
+    background-size: cover;
+    color: var(--neutral-ligth-50);
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 40px;
+}
+
+.lista-tarefas {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: -100px;
+    color: var(--neutral-ligth-400);
+}
+
+.lista-tarefas__nova {
+    font-family: var(--josefin);
+    background-color: var(--neutral-ligth-50);
+    font-size: 20px; 
+    width: 545px;
+    height: 55px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.nova-tarefa {
+    width: 480px;
+    height: 30px;
+    border: none;
+    outline: none;
+    font-family: var(--josefin);
+    font-size: 20px;
+    color: var(--neutral-ligth-400)
+}
+
+.close {
+    background-color: var(--neutral-ligth-50);
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.close img {
+    width: 15px;
+}
+
+.lista-tarefas__adicionadas {
+    width: 545px;
+    background-color: var(--neutral-ligth-50);
+    border-radius: 5px;
+}
+
+.lista-tarefas__adicionadas__tarefa {
+    height: 55px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid var(--neutral-ligth-100);
+    cursor: pointer;
+    justify-content: space-between;
+}
+
+.lista-tarefas__adicionadas__tarefa-descricao {
+    font-size: 16px;
+    flex: 1;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--neutral-ligth-200);
+    cursor: pointer;
+    appearance: none;
+    margin-right: 12px;
+    margin-left: 12px;
+    position: relative;
+}
+
+.checkbox:not(:checked):hover {
+    background: var(--gradient);
+    border: none;
+}
+
+.checkbox:not(:checked):hover::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--neutral-ligth-50);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.checkbox:checked {
+    background: var(--gradient);
+    border: none;
+}
+
+.checkbox:checked::after {
+    content: "";
+    background-image: url(../images/icon-check.svg);
+    position: absolute;
+    width: 11px;
+    height: 9px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* .lista-tarefas__adicionadas__tarefa input:checked+* {
+    color: var(--neutral-ligth-300);
+    text-decoration: line-through;
+} */
+
+.lista-tarefas__adicionadas__tarefa--concluida {
+    color: var(--neutral-ligth-300);
+    text-decoration: line-through;
+    
+}
+
+.lista-tarefas__rodape {
+    display: flex;
+    width: 545px;
+    height: 45px;
+    justify-content: space-around;
+    color: var(--neutral-ligth-300);
+    align-items: center;
+}
+
+.lista-tarefas__rodape__pendentes {
+    font-size: 12px; 
+}
+
+.lista-tarefas__rodape__filtros {
+    display: flex;
+}
+
+.lista-tarefas__rodape__filtros__btn {
+    font-weight: bold;
+}
+
+.lista-tarefas__rodape__filtros__btn,
+.lista-tarefas__rodape__limpar-concluidas {
+    background-color: var(--neutral-ligth-50);
+    border: none;
+    font-family: var(--josefin);
+    color: var(--neutral-ligth-300);
+    font-size: 14px; 
+    cursor: pointer;
+    
+}
+
+.lista-tarefas__rodape__filtros__btn--active:focus {
+    color: var(--primary-100);
+}
