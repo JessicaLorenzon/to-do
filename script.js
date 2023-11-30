@@ -2,12 +2,10 @@ const novaTarefa = document.querySelector('.nova-tarefa');
 const listaTarefas = document.querySelector('.lista-tarefas__adicionadas ul')
 const checkboxGeral = document.querySelector('.checkbox-geral');
 const tarefasPendentes = document.querySelector('.lista-tarefas__rodape__pendentes');
-
 const filtros = document.querySelector('.lista-tarefas__rodape__filtros');
 const tarefasAtivas = document.querySelector('.tarefas-ativas');
 const tarefasConcluidas = document.querySelector('.tarefas-concluidas');
 const tarefasTodas = document.querySelector('.tarefas-todas');
-
 const limparConcluidas = document.querySelector('.lista-tarefas__rodape__limpar-concluidas');
 
 contadorPendentes();
@@ -60,6 +58,9 @@ function finalizarTarefas() {
     const tarefas = document.querySelectorAll('.lista-tarefas__adicionadas__tarefa');
 
     tarefas.forEach(tarefa => {
+        if (tarefa.style.display == 'none') {
+            return
+        }
         if (checkboxGeral.checked) {
             tarefa.classList.add('lista-tarefas__adicionadas__tarefa--concluida');
             tarefa.querySelector('.checkbox').checked = true;
@@ -69,8 +70,8 @@ function finalizarTarefas() {
         }
         contadorPendentes();
     })
-    
 }
+
 
 //contador tarefas pendentes
 function contadorPendentes() {
@@ -86,51 +87,67 @@ function contadorPendentes() {
 }
 
 
-
 //filtro todas
 tarefasTodas.addEventListener('click', () => {
-    const tarefas = document.querySelectorAll('.lista-tarefas__adicionadas__tarefa');
-    tarefasTodas.classList.add('lista-tarefas__rodape__filtros__btn--active');
+    ativarFiltro(tarefasTodas);
 
-    tarefas.forEach(tarefa => {
-        if(tarefa.style.display = 'none') {
+    executarParaCadaTarefa((tarefa) => {
+        if (tarefa.style.display = 'none') {
             tarefa.style.display = 'flex';
         }
     })
+
 })
-    
+
 //filtro tarefas ativas
 tarefasAtivas.addEventListener('click', () => {
-    const tarefas = document.querySelectorAll('.lista-tarefas__adicionadas__tarefa');
-    tarefasAtivas.classList.add('lista-tarefas__rodape__filtros__btn--active');
+    ativarFiltro(tarefasAtivas);
 
-    tarefas.forEach(tarefa => {
-        if(tarefa.classList.contains('lista-tarefas__adicionadas__tarefa--concluida')) {
+    executarParaCadaTarefa((tarefa) => {
+        if (tarefa.classList.contains('lista-tarefas__adicionadas__tarefa--concluida')) {
             tarefa.style.display = 'none';
+        } else {
+            tarefa.style.display = 'flex';
         }
     })
 })
 
 //filtro tarefas concluidas
 tarefasConcluidas.addEventListener('click', () => {
-    const tarefas = document.querySelectorAll('.lista-tarefas__adicionadas__tarefa');
-    tarefasConcluidas.classList.add('lista-tarefas__rodape__filtros__btn--active');
+    ativarFiltro(tarefasConcluidas);
 
-    tarefas.forEach(tarefa => {
-        if(!tarefa.classList.contains('lista-tarefas__adicionadas__tarefa--concluida')) {
+    executarParaCadaTarefa((tarefa) => {
+        if (!tarefa.classList.contains('lista-tarefas__adicionadas__tarefa--concluida')) {
             tarefa.style.display = 'none';
+        } else {
+            tarefa.style.display = 'flex';
         }
     })
 })
+
+function ativarFiltro(filtro) {
+    const classeAtiva = 'lista-tarefas__rodape__filtros__btn--active'
+    document.querySelector(`.${classeAtiva}`).classList.remove(classeAtiva);
+    filtro.classList.add(classeAtiva);
+}
+
+function executarParaCadaTarefa(callback) {
+    const tarefas = document.querySelectorAll('.lista-tarefas__adicionadas__tarefa');
+
+    tarefas.forEach(tarefa => {
+        callback(tarefa);
+    })
+}
+
 
 //limpar concluidas 
 limparConcluidas.addEventListener('click', () => {
     const tarefas = document.querySelectorAll('.lista-tarefas__adicionadas__tarefa');
-    limparConcluidas.classList.add('lista-tarefas__rodape__filtros__btn--active');
 
     tarefas.forEach(tarefa => {
-        if(tarefa.classList.contains('lista-tarefas__adicionadas__tarefa--concluida')) {
+        if (tarefa.classList.contains('lista-tarefas__adicionadas__tarefa--concluida')) {
             tarefa.remove();
         }
     })
 })
+

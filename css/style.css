@@ -2,7 +2,7 @@
 
 :root {
     --neutral-ligth-50: #FAFAFA;
-    --neutral-ligth-100:#E4E5F1;
+    --neutral-ligth-100: #E4E5F1;
     --neutral-ligth-200: #D2D3DB;
     --neutral-ligth-300: #9394A5;
     --neutral-ligth-400: #484B6A;
@@ -32,6 +32,12 @@ body {
     font-size: 40px;
 }
 
+.cabecalho__container {
+    display: flex;
+    width: 545px;
+    justify-content: space-between;
+}
+
 .lista-tarefas {
     display: flex;
     align-items: center;
@@ -43,7 +49,7 @@ body {
 .lista-tarefas__nova {
     font-family: var(--josefin);
     background-color: var(--neutral-ligth-50);
-    font-size: 20px; 
+    font-size: 20px;
     width: 545px;
     height: 55px;
     margin-bottom: 20px;
@@ -148,7 +154,7 @@ body {
 .lista-tarefas__adicionadas__tarefa--concluida {
     color: var(--neutral-ligth-300);
     text-decoration: line-through;
-    
+
 }
 
 .lista-tarefas__rodape {
@@ -161,7 +167,7 @@ body {
 }
 
 .lista-tarefas__rodape__pendentes {
-    font-size: 12px; 
+    font-size: 12px;
 }
 
 .lista-tarefas__rodape__filtros {
@@ -178,11 +184,11 @@ body {
     border: none;
     font-family: var(--josefin);
     color: var(--neutral-ligth-300);
-    font-size: 14px; 
+    font-size: 14px;
     cursor: pointer;
-    
+
 }
 
-.lista-tarefas__rodape__filtros__btn--active:focus {
+.lista-tarefas__rodape__filtros__btn--active {
     color: var(--primary-100);
 }

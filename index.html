@@ -16,47 +16,29 @@
 
 <body>
   <div class="cabecalho">
-    <h1 class="cabecalho__titulo">TO DO </h1>
-    <a href="#" class="cabecalho__img-dia">
-      <img src="./images/icon-sun.svg">
-    </a>
+    <div class="cabecalho__container">
+      <h1 class="cabecalho__titulo">TO DO </h1>
+      <a href="#" class="cabecalho__img-dia">
+        <!-- <img src="./images/icon-moon.svg"> -->
+      </a>
+    </div>
   </div>
 
   <main class="lista-tarefas">
     <form class="lista-tarefas__nova">
       <input type="checkbox" class="checkbox checkbox-geral">
-      <input type="text" class="nova-tarefa" placeholder="Adicionar nova tarefa..." >
+      <input type="text" class="nova-tarefa" placeholder="Adicionar nova tarefa...">
     </form>
 
     <section class="lista-tarefas__adicionadas">
-      <ul>
-        <!-- <li class="lista-tarefas__adicionadas__tarefa" >
-          <input type="checkbox" class="checkbox">
-          <p class="lista-tarefas__adicionadas__tarefa-descricao">Tarefa 1</p>
-          <button class="close"><img src="./images/icon-cross.svg"></button>
-        </li>
-        <li class="lista-tarefas__adicionadas__tarefa">
-          <input type="checkbox" class="checkbox">
-          <p class="lista-tarefas__adicionadas__tarefa-descricao">Tarefa 2</p>
-          <button class="close"><img src="./images/icon-cross.svg"></button>
-        </li> -->
-        <!-- <li class="lista-tarefas__adicionadas__tarefa">
-          <input type="checkbox" class="checkbox">
-          <p class="lista-tarefas__adicionadas__tarefa-descricao">Tarefa 3</p>
-          <button class="close"><img src="./images/icon-cross.svg"></button>
-        </li>
-        <li class="lista-tarefas__adicionadas__tarefa">
-          <input type="checkbox" class="checkbox">
-          <p class="lista-tarefas__adicionadas__tarefa-descricao">Tarefa 4</p>
-          <button class="close"><img src="./images/icon-cross.svg"></button>
-        </li> -->
-      </ul>
+      <ul></ul>
 
       <div class="lista-tarefas__rodape">
         <p class="lista-tarefas__rodape__pendentes"></p>
 
         <div class="lista-tarefas__rodape__filtros">
-          <button class="lista-tarefas__rodape__filtros__btn tarefas-todas">Todas</button>
+          <button
+            class="lista-tarefas__rodape__filtros__btn tarefas-todas lista-tarefas__rodape__filtros__btn--active">Todas</button>
           <button class="lista-tarefas__rodape__filtros__btn tarefas-ativas">Ativas</button>
           <button class="lista-tarefas__rodape__filtros__btn tarefas-concluidas">Concluidas</button>
         </div>
