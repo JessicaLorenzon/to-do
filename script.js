@@ -2,13 +2,10 @@ const novaTarefa = document.querySelector('.nova-tarefa');
 const listaTarefas = document.querySelector('.lista-tarefas__adicionadas ul')
 const checkboxGeral = document.querySelector('.checkbox-geral');
 const tarefasPendentes = document.querySelector('.lista-tarefas__rodape__pendentes');
-const filtros = document.querySelector('.lista-tarefas__rodape__filtros');
 const tarefasAtivas = document.querySelector('.tarefas-ativas');
 const tarefasConcluidas = document.querySelector('.tarefas-concluidas');
 const tarefasTodas = document.querySelector('.tarefas-todas');
 const limparConcluidas = document.querySelector('.lista-tarefas__rodape__limpar-concluidas');
-
-contadorPendentes();
 
 //cria tarefa
 novaTarefa.addEventListener('keypress', (event) => {
@@ -20,6 +17,9 @@ novaTarefa.addEventListener('keypress', (event) => {
 });
 
 function criaTarefa() {
+    if (novaTarefa.value == '') {
+        return
+    }
     const li = document.createElement('li');
     li.classList.add('lista-tarefas__adicionadas__tarefa');
 
@@ -85,6 +85,7 @@ function contadorPendentes() {
     })
     tarefasPendentes.innerHTML = `<p class="lista-tarefas__rodape__pendentes">${contador} tarefas pendentes</p>`
 }
+contadorPendentes();
 
 
 //filtro todas
